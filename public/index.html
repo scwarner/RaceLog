@@ -18,16 +18,20 @@
     <main>
 
       <!-- JUMBOTRON/HERO CONTENT -->
-      <div class="jumbotron">
 
+      <div class="jumbotron">
+        <h1>Hello, Runners and Walkers</h1>
+        <p class="lead">Bacon ipsum dolor amet magna beef drumstick mollit eu, fugiat dolore cillum tri-tip commodo. Excepteur do burgdoggen rump ipsum in cupim cillum strip steak, dolor et. Nulla pastrami occaecat filet mignon dolore. Shank in anim voluptate do, jowl adipisicing. Ut laborum exercitation, pork belly ham aliqua elit cow culpa. Sausage cupim laboris strip steak flank pork chop meatball nostrud proident venison frankfurter shoulder burgdoggen ball tip. Lorem pork belly eu swine bresaola id ham minim.</p>
+        <button type="button" name="enterButton" id="enterButton" class="btn btn-primary">Enter Races</button>
       </div>
 
-      <div class="container">
-        <h1>Hello, Runners and Walkers</h1>
-        <p>Bacon ipsum dolor amet magna beef drumstick mollit eu, fugiat dolore cillum tri-tip commodo. Excepteur do burgdoggen rump ipsum in cupim cillum strip steak, dolor et. Nulla pastrami occaecat filet mignon dolore. Shank in anim voluptate do, jowl adipisicing. Ut laborum exercitation, pork belly ham aliqua elit cow culpa. Sausage cupim laboris strip steak flank pork chop meatball nostrud proident venison frankfurter shoulder burgdoggen ball tip. Lorem pork belly eu swine bresaola id ham minim.</p>
-        <button type="button" name="enterButton" id="enterButton" class="btn btn-primary">Enter Races</button>
+      <!-- END JUMBOTRON/HERO CONTENT -->
 
-        <form>
+      <div class="container">
+
+    <!-- FORM CONTENT -->
+
+        <form id="raceForm">
           <div class="form-group">
             <label for="raceName">Race Name:</label>
             <input class="form-control" type="text" name="raceName" id="raceName">
@@ -86,12 +90,41 @@
           </div>
           <div class="form-group">
             <label for="raceTime">Time:</label>
-            <input type="text" name="raceTime" id="raceTime" placeholder="Use 00:00:00 format">
+            <input class="form-control" type="text" name="raceTime" id="raceTime" placeholder="Use 00:00:00 format">
           </div>
           <button type="button" name="button" class="btn btn-primary">Submit</button>
         </form>
 
+    <!-- END FORM CONTENT -->
+    <!-- TABLE CONTENT -->
 
+        <h2>My Races</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Month</th>
+              <th>Year</th>
+              <th>Distance</th>
+              <th>Time</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Kentucky Derby Half Marathon</td>
+              <td>April</td>
+              <td>2017</td>
+              <td>Half Marathon</td>
+              <td>02:23:55</td>
+              <td><button type="button" name="button" class="btn btn-secondary btn-sm">Edit</button></td>
+              <td><button type="button" name="button" class="btn btn-danger btn-sm">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+      <!-- END TABLE CONTENT -->
       </div>
 
 
