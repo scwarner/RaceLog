@@ -1,0 +1,17 @@
+.navbar-dark {
+  background-color: rgb(255,50,0);
+}
+
+.jumbotron {
+  background-image: url('../img/hero.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    color: #fff;
+
+}
+
+#enterButton {
+  background-color: rgb(20,70,205);
+  border-color: rgb(20,70,205);
+}
