@@ -101,52 +101,68 @@
     <!-- END FORM CONTENT -->
 
     <!-- TABLE CONTENT -->
+      <h2>My Races</h2>
       <div class="container" id="race-data">
-        <h2>My Races</h2>
-        <table class="table table-responsive">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Date</th>
-              <th>Distance</th>
-              <th>Time</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
+        <script id="race-template" type="text/x-handlebars-template">
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Distance</th>
+                <th>Time</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each races}}
+              <tr class="race-list">
+                <td>{{raceName}}</td>
+                <td>{{raceDate}}</td>
+                <td>{{raceDistance}}</td>
+                <td>{{raceTime}}</td>
+                <td><button type="button" name="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                <td><button type="button" name="button" class="btn btn-danger btn-sm">Delete</button></td>
+              </tr>
+              {{/each}}
+            <!-- <tr>
               <td>Kentucky Derby Half Marathon</td>
-              <td>April 2017</td>
-              <td>Half Marathon</td>
-              <td>02:23:55</td>
-              <td><button type="button" name="button" class="btn btn-secondary btn-sm">Edit</button></td>
-              <td><button type="button" name="button" class="btn btn-danger btn-sm">Delete</button></td>
-            </tr>
-            <tr>
-              <td>Flying Pig Half Marathon</td>
-              <td>May 2015</td>
-              <td>Half Marathon</td>
-              <td>02:28:55</td>
-              <td><button type="button" name="button" class="btn btn-secondary btn-sm">Edit</button></td>
-              <td><button type="button" name="button" class="btn btn-danger btn-sm">Delete</button></td>
-            </tr>
-
-          </tbody>
-        </table>
-
+                <td>April 2017</td>
+                <td>Half Marathon</td>
+                <td>02:23:55</td>
+                <td><button type="button" name="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                <td><button type="button" name="button" class="btn btn-danger btn-sm">Delete</button></td>
+              </tr>
+              <tr>
+                <td>Flying Pig Half Marathon</td>
+                <td>May 2015</td>
+                <td>Half Marathon</td>
+                <td>02:28:55</td>
+                <td><button type="button" name="button" class="btn btn-secondary btn-sm">Edit</button></td>
+                <td><button type="button" name="button" class="btn btn-danger btn-sm">Delete</button></td>
+              </tr>
+            -->
+            </tbody>
+          </table>
+        </script>
       <!-- END TABLE CONTENT -->
       </div>
-
-
-
-
-
     </main>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
+    <script type="text/javascript">
+      const source = $('#race-template').html();
+      const template = Handlebars.compile(source);
+      const data = {
+        races: [
+          {raceName: 'Flying Pig', raceDate: 'May 2015', raceDistance: 'Half Marathon', raceTime: '2:20:15'},
+          {raceName: 'Great Pumpkin', raceDate: 'September 2017', raceDistance: '10K', raceTime: '1:03:44'}
+        ]};
+      $('#race-data').html(template(data));
+    </script>
+
   </body>
 </html>
