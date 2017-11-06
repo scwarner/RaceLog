@@ -21,3 +21,7 @@ function refreshFileList() {
       $('#race-data').html(html);
     })
 }
+
+$('#enterButton').on('click', function (){
+  $('#raceForm').toggleClass('hideme');
+})
