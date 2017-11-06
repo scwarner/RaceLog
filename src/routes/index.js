@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const mongoose = require('mongoose');
 
 const FILES = [
   {id: 'a', raceName: 'Flying Pig', raceDate: 'May 2015', raceDistance: 'Half Marathon', raceTime: '2:20:15'},
@@ -7,12 +8,15 @@ const FILES = [
   {id: 'd', raceName: 'Great Pumpkin', raceDate: 'September 2017', raceDistance: '10K', raceTime: '1:03:15'}
 ]
 
-router.use('/doc', function(req, res, next) {
-  res.end(`Documentation http://expressjs.com/`);
-});
-
 router.get('/file', function(req, res, next) {
-  res.json(FILES);
+  mongoose.model('File').find({}, function(err, files) {
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+
+    res.json(files);
+  });
 });
 
 router.post('/file', function(req, res, next) {
