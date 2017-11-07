@@ -2,10 +2,10 @@ const router = require('express').Router();
 const mongoose = require('mongoose');
 
 const FILES = [
-  {id: 'a', raceName: 'Flying Pig', raceDate: 'May 2015', raceDistance: 'Half Marathon', raceTime: '2:20:15'},
-  {id: 'b', raceName: 'Indianapolis Mini', raceDate: 'May 2009', raceDistance: 'Half Marathon', raceTime: '2:24:15'},
-  {id: 'c', raceName: 'Fort 4 Fitness', raceDate: 'September 2016', raceDistance: 'Half Marathon', raceTime: '2:17:15'},
-  {id: 'd', raceName: 'Great Pumpkin', raceDate: 'September 2017', raceDistance: '10K', raceTime: '1:03:15'}
+  {id: 'a', raceName: 'Flying Pig', raceMonth: 'May', raceYear: '2015', raceDistance: 'Half Marathon', raceTime: '2:20:15'},
+  {id: 'b', raceName: 'Indianapolis Mini', raceMonth: 'May', raceYear: '2009', raceDistance: 'Half Marathon', raceTime: '2:24:15'},
+  {id: 'c', raceName: 'Fort 4 Fitness', raceMonth: 'September', raceYear: '2016', raceDistance: 'Half Marathon', raceTime: '2:17:15'},
+  {id: 'd', raceName: 'Great Pumpkin', raceMonth: 'September', raceYear: '2017', raceDistance: '10K', raceTime: '1:03:15'}
 ]
 
 router.get('/file', function(req, res, next) {
@@ -20,12 +20,23 @@ router.get('/file', function(req, res, next) {
 });
 
 router.post('/file', function(req, res, next) {
-  const newId = '' + FILES.length;
-  const data = req.body;
-  data.id = newId;
+  const File = mongoose.model('File');
+  const racingData = {
+    raceName: req.body.raceName,
+    raceMonth: req.body.raceMonth,
+    raceYear: req.body.raceYear,
+    raceDistance: req.body.raceDistance,
+    raceTime: req.body.raceTime
+  };
 
-  FILES.push(data);
-  res.status(201).json(data);
+  File.create(racingData, function(err, newFile) {
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+
+    res.json(newFile);
+  });
 });
 
 router.put('/file/:fileId', function(req, res, next) {
@@ -36,7 +47,8 @@ router.put('/file/:fileId', function(req, res, next) {
   }
 
   file.raceName = req.body.raceName;
-  file.raceDate = req.body.raceDate;
+  file.raceMonth = req.body.raceMonth;
+  file.raceYear = req.body.raceYear;
   file.raceDistance = req.body.raceDistance;
   file.raceTime = req.body.raceTime;
   res.json(file);

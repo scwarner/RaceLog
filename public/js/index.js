@@ -24,4 +24,35 @@ function refreshFileList() {
 
 $('#enterButton').on('click', function (){
   $('#raceForm').toggleClass('hideme');
+});
+
+function submitFileForm() {
+  console.log("You clicked 'submit'. Congratulations.");
+  const raceName = $('#raceName').val();
+  const raceMonth = $('#raceMonth').val();
+  const raceYear = $('#raceYear').val();
+  const raceDistance = $('#raceDistance').val();
+  const raceTime = $('#raceTime').val();
+  const racingData = {
+    raceName: raceName,
+    raceMonth: raceMonth,
+    raceYear: raceYear,
+    raceDistance: raceDistance,
+    raceTime: raceTime
+  };
+  $.ajax({
+  type: "POST",
+  url: '/api/file',
+  data: JSON.stringify(racingData),
+  dataType: 'json',
+  contentType : 'application/json',
 })
+  .done(function(response) {
+    console.log("We have posted the data");
+    refreshFileList();
+  })
+  .fail(function(error) {
+    console.log("Failures at posting, we are", error);
+  });
+
+}

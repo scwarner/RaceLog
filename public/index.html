@@ -23,8 +23,8 @@
 
       <div class="jumbotron">
         <h1>Hello, Runners and Walkers</h1>
-        <p class="lead">Each trip across the finish line is a major accomplishment. Track your achievements using this handy race log.</p>
-        <button type="button" name="enterButton" id="enterButton" class="btn btn-primary">Enter Races</button>
+        <p class="lead">No matter the distance or time, each trip across the finish line is a major accomplishment. You can keep track of those accomplishments using this handy race log. Simply click the button below to start.</p>
+        <button type="button" name="enterButton" id="enterButton" class="btn btn-primary">Enter Race</button>
       </div>
 
       <!-- END JUMBOTRON/HERO CONTENT -->
@@ -80,20 +80,21 @@
           <div class="form-group">
             <label for="raceDistance">Distance:</label>
             <select class="raceDistance custom-select" name="raceDistance" id='raceDistance'>
-              <option value="26.2">Marathon</option>
-              <option value="13.1">Half Marathon</option>
-              <option value="10">10-miler</option>
-              <option value="9.3">15K</option>
-              <option value="6.2">10K</option>
-              <option value="5.0">5-miler</option>
-              <option value="3.1">5K</option>
+              <option value="Marathon">Marathon</option>
+              <option value="Half Marathon">Half Marathon</option>
+              <option value="10-miler">10-miler</option>
+              <option value="15K">15K</option>
+              <option value="10K">10K</option>
+              <option value="5-miler">5-miler</option>
+              <option value="4-miler">4-miler</option>
+              <option value="5K">5K</option>
             </select>
           </div>
           <div class="form-group">
             <label for="raceTime">Time:</label>
             <input class="form-control" type="text" name="raceTime" id="raceTime" placeholder="Use 00:00:00 format">
           </div>
-          <button type="button" name="button" id="formButton" class="btn btn-primary">Submit</button>
+          <button type="button" name="button" id="formButton" onclick="submitFileForm()" class="btn btn-primary">Submit</button>
         </form>
       </div>
 
@@ -118,7 +119,7 @@
                 {{#each files}}
                 <tr id="race-list">
                   <td>{{raceName}}</td>
-                  <td>{{raceDate}}</td>
+                  <td>{{raceMonth}} {{raceYear}}</td>
                   <td>{{raceDistance}}</td>
                   <td>{{raceTime}}</td>
                   <td><button type="button" name="button" class="btn btn-secondary btn-sm">Edit</button></td>
@@ -154,8 +155,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
     <script src="/js/index.js" type="text/javascript"></script>
    <script>
-
+   $(document).ready(function() {
         refreshFileList();
+      });
     </script>
     <!--
     <script type="text/javascript">

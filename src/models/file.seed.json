@@ -1,6 +1,6 @@
 [
-  {"id": "a", "raceName": "Flying Pig", "raceDate": "May 2015", "raceDistance": "Half Marathon", "raceTime": "2:05:15"},
-  {"id": "b", "raceName": "Indianapolis Mini", "raceDate": "May 2009", "raceDistance": "Half Marathon", "raceTime": "2:20:15"},
-  {"id": "c", "raceName": "Fort 4 Fitness", "raceDate": "September 2016", "raceDistance": "Half Marathon", "raceTime": "2:17:15"},
-  {"id": "d", "raceName": "Great Pumpkin", "raceDate": "September 2017", "raceDistance": "10K", "raceTime": "1:03:15"}
+  {"id": "a", "raceName": "Flying Pig", "raceMonth": "May", "raceYear": "2008", "raceDistance": "Half Marathon", "raceTime": "2:05:15"},
+  {"id": "b", "raceName": "Indianapolis Mini", "raceMonth": "May", "raceYear": "2011",  "raceDistance": "Half Marathon", "raceTime": "2:20:15"},
+  {"id": "c", "raceName": "Fort 4 Fitness", "raceMonth": "September", "raceYear": "2016", "raceDistance": "Half Marathon", "raceTime": "2:17:15"},
+  {"id": "d", "raceName": "Great Pumpkin", "raceMonth": "September", "raceYear": "2017", "raceDistance": "10K", "raceTime": "1:03:15"}
 ]
