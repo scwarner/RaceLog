@@ -16,6 +16,9 @@ function refreshFileList() {
 
   getFiles()
     .then(files => {
+
+      window.fileList = files;
+
       const data = {files: files};
       const html = compiledTemplate(data);
       $('#race-data').html(html);
@@ -50,9 +53,19 @@ function submitFileForm() {
   .done(function(response) {
     console.log("We have posted the data");
     refreshFileList();
+    $('#raceForm').toggleClass('hideme');
   })
   .fail(function(error) {
     console.log("Failures at posting, we are", error);
   });
 
+}
+
+function updateRace(id) {
+  const file = window.fileList.find(file => file._id === id);
+  if (file) {
+    console.log("I will edit you!", file);
+  } else {
+    console.log("Aw shucks, I didn't find", id)
+  }
 }
