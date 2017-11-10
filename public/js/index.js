@@ -25,12 +25,12 @@ function refreshFileList() {
     })
 }
 
-$('#enterButton').on('click', function (){
+function toggleVisibility () {
   $('#raceForm').toggleClass('hideme');
-});
+}
 
 function submitFileForm() {
-  console.log("You clicked 'submit'. Congratulations.");
+  //console.log("You clicked 'submit'. Congratulations.");
   const raceName = $('#raceName').val();
   const raceMonth = $('#raceMonth').val();
   const raceYear = $('#raceYear').val();
@@ -51,9 +51,7 @@ function submitFileForm() {
   contentType : 'application/json',
 })
   .done(function(response) {
-    console.log("We have posted the data");
     refreshFileList();
-    $('#raceForm').toggleClass('hideme');
   })
   .fail(function(error) {
     console.log("Failures at posting, we are", error);
@@ -64,8 +62,25 @@ function submitFileForm() {
 function updateRace(id) {
   const file = window.fileList.find(file => file._id === id);
   if (file) {
-    console.log("I will edit you!", file);
-  } else {
-    console.log("Aw shucks, I didn't find", id)
+    $('#raceName').val(file.raceName);
+    $('#raceMonth').val(file.raceMonth);
+    $('#raceYear').val(file.raceYear);
+    $('#raceDistance').val(file.raceDistance);
+    $('#raceTime').val(file.raceTime);
+    $('#raceId').val(file._id);
+    toggleVisibility();
   }
+/*
+  $.ajax(
+    type: "PUT",
+    url: 'api/file/:fileId',
+    data: JSON.stringify(racingData),
+    dataType: 'json',
+    contentType: 'application/json',
+    })
+    .done(function(response) {
+
+    })
+
 }
+*/

@@ -24,7 +24,7 @@
       <div class="jumbotron">
         <h1>Hello, Runners and Walkers</h1>
         <p class="lead">No matter the distance or time, each trip across the finish line is a major accomplishment. You can keep track of those accomplishments using this handy race log. Simply click the button below to start.</p>
-        <button type="button" name="enterButton" id="enterButton" class="btn btn-primary">Enter Race</button>
+        <button type="button" name="enterButton" id="enterButton" onclick="toggleVisibility()" class="btn btn-primary">Enter Race</button>
       </div>
 
       <!-- END JUMBOTRON/HERO CONTENT -->
@@ -92,6 +92,8 @@
           </div>
           <div class="form-group">
             <label for="raceTime">Time:</label>
+            <form id="add-file-form">
+            <input type="hidden" id="raceId" value="" />
             <input class="form-control" type="text" name="raceTime" id="raceTime" placeholder="Use 00:00:00 format">
           </div>
           <button type="button" name="button" id="formButton" onclick="submitFileForm()" class="btn btn-primary">Submit</button>
