@@ -56,7 +56,23 @@ function submitFileForm() {
   .fail(function(error) {
     console.log("Failures at posting, we are", error);
   });
+}
 
+function deleteRace(id) {
+  if (confirm("Are you sure?")) {
+    $.ajax({
+      type: 'DELETE',
+      url: 'api/file/' + id,
+      dataType: 'json',
+      contentType: 'application/json',
+    })
+    .done(function(response) {
+      refreshFileList();
+    })
+    .fail(function(error) {
+      console.log("File not deleted", error);
+    })
+  }
 }
 
 function updateRace(id) {
@@ -70,17 +86,25 @@ function updateRace(id) {
     $('#raceId').val(file._id);
     toggleVisibility();
   }
+}
 /*
-  $.ajax(
-    type: "PUT",
-    url: 'api/file/:fileId',
-    data: JSON.stringify(racingData),
-    dataType: 'json',
-    contentType: 'application/json',
-    })
-    .done(function(response) {
+function setFormData(data) {
+  data = data || {};
 
-    })
+  const file = {
+    raceName: data.raceName || '',
+    raceMonth: data.raceMonth || '',
+    raceYear: data.raceYear || '',
+    raceDistance: data.raceDistance || '',
+    raceTime: data.raceTime || '',
+    _id: data._id || '',
+  };
 
+  $('#raceName').val(file.raceName);
+  $('#raceMonth').val(file.raceMonth);
+  $('#raceYear').val(file.raceYear);
+  $('#raceDistance').val(file.raceDistance);
+  $('#raceTime').val(file.raceTime);
+  $('#raceId').val(file._id);
 }
 */
