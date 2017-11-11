@@ -1,5 +1,9 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .navbar-dark {
-  background-color: rgb(255,50,0);
+  background-color: rgb(20,70,205);
 }
 
 .jumbotron {
@@ -8,7 +12,10 @@
     background-position: bottom;
     background-size: cover;
     color: #fff;
+}
 
+h1 {
+  font-family: 'Oswald', sans-serif;
 }
 
 .hideme {

@@ -52,11 +52,59 @@ function submitFileForm() {
 })
   .done(function(response) {
     refreshFileList();
+    toggleVisibility();
   })
   .fail(function(error) {
     console.log("Failures at posting, we are", error);
   });
 }
+
+function editRace(id) {
+  const file = window.fileList.find(file => file._id === id);
+  if (file) {
+    $('#updateName').val(file.raceName);
+    $('#updateMonth').val(file.raceMonth);
+    $('#updateYear').val(file.raceYear);
+    $('#updateDistance').val(file.raceDistance);
+    $('#updateTime').val(file.raceTime);
+    $('#updateId').val(file._id);
+    console.log("I will edit you!", id);
+ } else {
+   console.log("Aw shucks, I didn't find", id)
+ }
+}
+
+
+function updateRace(id) {
+  const file = window.fileList.find(file => file._id === id);
+  const raceData = {
+    raceName: $('#updateName').val(),
+    raceMonth: $('#updateMonth').val(),
+    raceYear: $('#updateYear').val(),
+    raceDistance: $('#updateDistance').val(),
+    raceTime: $('#updateTime').val(),
+    raceId: $('#updateId').val(),
+  };
+  console.log("I will edit you!", id);
+  
+  /*
+  $.ajax({
+    type: 'PUT',
+    url: 'api/file' + id,
+    data: JSON.stringify(raceData),
+    dataType: 'json',
+    contentType : 'application/json',
+  }).
+  done(function(response) {
+    refreshFileList();
+    toggleVisibility();
+  })
+  .fail(function(error) {
+    console.log('Not updated', error);
+  })
+  */
+}
+
 
 function deleteRace(id) {
   if (confirm("Are you sure?")) {
@@ -74,37 +122,3 @@ function deleteRace(id) {
     })
   }
 }
-
-function updateRace(id) {
-  const file = window.fileList.find(file => file._id === id);
-  if (file) {
-    $('#raceName').val(file.raceName);
-    $('#raceMonth').val(file.raceMonth);
-    $('#raceYear').val(file.raceYear);
-    $('#raceDistance').val(file.raceDistance);
-    $('#raceTime').val(file.raceTime);
-    $('#raceId').val(file._id);
-    toggleVisibility();
-  }
-}
-/*
-function setFormData(data) {
-  data = data || {};
-
-  const file = {
-    raceName: data.raceName || '',
-    raceMonth: data.raceMonth || '',
-    raceYear: data.raceYear || '',
-    raceDistance: data.raceDistance || '',
-    raceTime: data.raceTime || '',
-    _id: data._id || '',
-  };
-
-  $('#raceName').val(file.raceName);
-  $('#raceMonth').val(file.raceMonth);
-  $('#raceYear').val(file.raceYear);
-  $('#raceDistance').val(file.raceDistance);
-  $('#raceTime').val(file.raceTime);
-  $('#raceId').val(file._id);
-}
-*/

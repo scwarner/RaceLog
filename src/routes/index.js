@@ -46,11 +46,11 @@ router.put('/file/:fileId', function(req, res, next) {
     return res.status(404).end(`Could not find file '${fileId}'`);
   }
 
-  file.raceName = req.body.raceName;
-  file.raceMonth = req.body.raceMonth;
-  file.raceYear = req.body.raceYear;
-  file.raceDistance = req.body.raceDistance;
-  file.raceTime = req.body.raceTime;
+  file.raceName = req.body.updateName;
+  file.raceMonth = req.body.updateMonth;
+  file.raceYear = req.body.updateYear;
+  file.raceDistance = req.body.updateDistance;
+  file.raceTime = req.body.updateTime;
   res.json(file);
 });
 
