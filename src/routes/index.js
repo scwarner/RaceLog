@@ -40,18 +40,33 @@ router.post('/file', function(req, res, next) {
 });
 
 router.put('/file/:fileId', function(req, res, next) {
-  const {fileId} = req.params;
-  const file = FILES.find(entry => entry.id === fileId);
+const File = mongoose.model('File');
+const fileId = req.params.fileId;
+
+File.findById(fileId, function(err, file) {
+  if (err) {
+    console.error(err);
+    return res.status(500).json(err);
+  }
   if (!file) {
-    return res.status(404).end(`Could not find file '${fileId}'`);
+    return res.status(404).json({message: "File not found"});
   }
 
-  file.raceName = req.body.updateName;
-  file.raceMonth = req.body.updateMonth;
-  file.raceYear = req.body.updateYear;
-  file.raceDistance = req.body.updateDistance;
-  file.raceTime = req.body.updateTime;
-  res.json(file);
+  file.raceName = req.body.raceName;
+  file.raceMonth = req.body.raceMonth;
+  file.raceYear = req.body.raceYear;
+  file.raceDistance = req.body.raceDistance;
+  file.raceTime = req.body.raceTime;
+
+  file.save(function(err, savedFile) {
+    if (err) {
+      console.error(err);
+      return res.status(500).json(err);
+    }
+    res.json(savedFile);
+  })
+
+})
 });
 
 router.delete('/file/:fileId', function(req, res, next) {

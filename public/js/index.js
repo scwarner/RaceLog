@@ -75,34 +75,30 @@ function editRace(id) {
 }
 
 
-function updateRace(id) {
-  const file = window.fileList.find(file => file._id === id);
+function updateRace() {
+  const file = window.fileList.find(file => file._id);
   const raceData = {
     raceName: $('#updateName').val(),
     raceMonth: $('#updateMonth').val(),
     raceYear: $('#updateYear').val(),
     raceDistance: $('#updateDistance').val(),
     raceTime: $('#updateTime').val(),
-    raceId: $('#updateId').val(),
+    _id: $('#updateId').val()
   };
-  console.log("I will edit you!", id);
-  
-  /*
+
   $.ajax({
     type: 'PUT',
-    url: 'api/file' + id,
+    url: 'api/file/' + raceData._id,
     data: JSON.stringify(raceData),
     dataType: 'json',
     contentType : 'application/json',
-  }).
-  done(function(response) {
+  })
+  .done(function(response) {
     refreshFileList();
-    toggleVisibility();
   })
   .fail(function(error) {
     console.log('Not updated', error);
   })
-  */
 }
 
 
