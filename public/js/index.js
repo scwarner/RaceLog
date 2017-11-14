@@ -1,3 +1,6 @@
+/*************************
+Function to retrieve races
+*************************/
 function getFiles() {
   return $.ajax('/api/file')
     .then(res => {
@@ -10,6 +13,10 @@ function getFiles() {
     });
 }
 
+/********************************
+Function to refresh the table when
+races are added, deleted or updated
+*********************************/
 function refreshFileList() {
   const template = $('#race-template').html();
   const compiledTemplate = Handlebars.compile(template);
@@ -25,12 +32,18 @@ function refreshFileList() {
     })
 }
 
+/**********************************
+Function to reveal or hide entry from
+**********************************/
 function toggleVisibility () {
   $('#raceForm').toggleClass('hideme');
 }
 
+/**********************************
+Function posts race data when form
+submit button is clicked
+**********************************/
 function submitFileForm() {
-  //console.log("You clicked 'submit'. Congratulations.");
   const raceName = $('#raceName').val();
   const raceMonth = $('#raceMonth').val();
   const raceYear = $('#raceYear').val();
@@ -59,6 +72,10 @@ function submitFileForm() {
   });
 }
 
+/**********************************
+Populates modal input fields with
+rate data when clicked
+**********************************/
 function editRace(id) {
   const file = window.fileList.find(file => file._id === id);
   if (file) {
@@ -74,7 +91,10 @@ function editRace(id) {
  }
 }
 
-
+/**********************************
+Function updates race data when form
+save changes button is clicked
+**********************************/
 function updateRace() {
   const file = window.fileList.find(file => file._id);
   const raceData = {
@@ -101,7 +121,10 @@ function updateRace() {
   })
 }
 
-
+/**********************************
+Function deletes race data when form
+delete button is clicked
+**********************************/
 function deleteRace(id) {
   if (confirm("Are you sure?")) {
     $.ajax({

@@ -8,6 +8,9 @@ const FILES = [
   {id: 'd', raceName: 'Great Pumpkin', raceMonth: 'September', raceYear: '2017', raceDistance: '10K', raceTime: '1:03:15'}
 ]
 
+/**********************************
+GET route
+**********************************/
 router.get('/file', function(req, res, next) {
   mongoose.model('File').find({deleted: {$ne: true}}, function(err, files) {
     if (err) {
@@ -19,6 +22,9 @@ router.get('/file', function(req, res, next) {
   });
 });
 
+/**********************************
+POST route
+**********************************/
 router.post('/file', function(req, res, next) {
   const File = mongoose.model('File');
   const racingData = {
@@ -39,6 +45,9 @@ router.post('/file', function(req, res, next) {
   });
 });
 
+/**********************************
+PUT route
+**********************************/
 router.put('/file/:fileId', function(req, res, next) {
 const File = mongoose.model('File');
 const fileId = req.params.fileId;
@@ -69,6 +78,9 @@ File.findById(fileId, function(err, file) {
 })
 });
 
+/**********************************
+DELETE route
+**********************************/
 router.delete('/file/:fileId', function(req, res, next) {
   const File = mongoose.model('File');
   const fileId = req.params.fileId;
