@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>My Race Log</title>
+    <title>My Finish Lines</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -17,8 +17,8 @@
       <!-- JUMBOTRON/HERO CONTENT -->
 
       <div class="jumbotron">
-        <h1>My Finish Line</h1>
-        <p class="lead">Track your running achievements</p>
+        <h1>My Finish Lines</h1>
+        <p class="lead">Track your racing achievements</p>
       </div>
 
       <!-- END JUMBOTRON/HERO CONTENT -->
@@ -28,8 +28,6 @@
       <div class="container">
         <p>Whether you broke the tape or finished dead last, each race you complete is major accomplishment. Use this handy race log to keep a record of those achievements, no matter the distance. Simply click the button below to start.</p>
         <button type="button" name="enterButton" id="enterButton" onclick="toggleVisibility()" class="btn btn-primary">Enter Race</button>
-
-      <!-- END INTRO CONTENT -->
 
       <!-- FORM CONTENT -->
 
@@ -103,6 +101,8 @@
 
     <!-- END FORM CONTENT -->
 
+    <!-- END INTRO CONTENT -->
+
     <!-- TABLE CONTENT -->
 
       <div class="container" id="race-data">
@@ -111,13 +111,13 @@
     </main>
 
     <script id="race-template" type="text/x-handlebars-template">
-      <h2>My Races</h2>
+      <h2>My Race Log</h2>
       <table class="table table-responsive">
         <thead>
           <tr>
             <th>Name</th>
             <th>Date</th>
-            <th>Distance</th>
+            <th class="d-none d-sm-block">Distance</th>
             <th>Time</th>
             <th></th>
             <th></th>
@@ -128,29 +128,12 @@
             <tr id="race-list">
               <td>{{raceName}}</td>
               <td>{{raceMonth}} {{raceYear}}</td>
-              <td>{{raceDistance}}</td>
+              <td class="d-none d-sm-block">{{raceDistance}}</td>
               <td>{{raceTime}}</td>
               <td><button type="button" name="button" class="btn btn-secondary btn-sm" onclick=editRace('{{_id}}') data-toggle="modal" data-target="#updateModal">Edit</button></td>
-              <td><button type="button" name="button" class="btn btn-danger btn-sm" onclick=deleteRace('{{_id}}')>Delete</button></td>
+              <td><button type="button" name="button" class="btn btn-danger btn-sm" onclick=deleteRace('{{_id}}')>Del</button></td>
             </tr>
             {{/each}}
-          <!-- <tr>
-            <td>Kentucky Derby Half Marathon</td>
-              <td>April 2017</td>
-              <td>Half Marathon</td>
-              <td>02:23:55</td>
-              <td><button type="button" name="button" class="btn btn-secondary btn-sm">Edit</button></td>
-              <td><button type="button" name="button" class="btn btn-danger btn-sm">Delete</button></td>
-            </tr>
-            <tr>
-              <td>Flying Pig Half Marathon</td>
-              <td>May 2015</td>
-              <td>Half Marathon</td>
-              <td>02:28:55</td>
-              <td><button type="button" name="button" class="btn btn-secondary btn-sm">Edit</button></td>
-              <td><button type="button" name="button" class="btn btn-danger btn-sm">Delete</button></td>
-            </tr>
-          -->
           </tbody>
         </table>
     </script>

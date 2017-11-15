@@ -2,24 +2,35 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.navbar-dark {
-  background-color: rgb(20,70,205);
-}
+/******************
+JUMBOTRON STYLES
+******************/
 
 .jumbotron {
   background-image: url('../img/hero.jpg');
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
+    border-radius: 0;
     color: #fff;
+    text-align: center;
 }
 
 h1 {
   font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
 }
+
+/******************
+INTRO/FORM STYLES
+******************/
 
 .hideme {
   display: none;
+}
+
+#raceForm {
+  margin-top: 20px;
 }
 
 #enterButton,
@@ -28,6 +39,28 @@ h1 {
   border-color: rgb(20,70,205);
 }
 
+/******************
+TABLE STYLES
+******************/
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: .75rem;
+}
+
 #race-data {
   margin-top: 30px;
+}
+
+.table th,
+.table td {
+  padding: .25rem;
+}
+
+th,
+td {
+ font-size: .8rem;
+}
+
+.btn-sm {
+ font-size: .700rem;
 }
