@@ -82,8 +82,8 @@ function submitFileForm() {
 }
 
 /**********************************
-Populates modal input fields with
-rate data when clicked
+Populates update modal input fields
+with rate data when clicked
 **********************************/
 function editRace(id) {
   const file = window.fileList.find(file => file._id === id);
@@ -96,7 +96,7 @@ function editRace(id) {
     $('#updateId').val(file._id);
     console.log("I will edit you!", id);
  } else {
-   console.log("Aw shucks, I didn't find", id)
+   console.log("Sorry, I didn't find", id)
  }
 }
 

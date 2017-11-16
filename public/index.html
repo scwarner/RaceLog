@@ -34,7 +34,7 @@
         <form id="raceForm" class="hideme">
           <div class="form-group">
             <label for="raceName">Race Name:</label>
-            <input class="form-control" type="text" name="raceName" id="raceName">
+            <input class="form-control" type="text" name="raceName" id="raceName" required>
           </div>
           <div class="form-group">
             <label for="raceMonth">Month:</label>
@@ -91,9 +91,9 @@
           </div>
           <div class="form-group">
             <label for="raceTime">Time:</label>
+            <input class="form-control" type="text" name="raceTime" id="raceTime" placeholder="Example format: 1:23:45" required>
             <form id="add-file-form">
             <input type="hidden" id="raceId" value="" />
-            <input class="form-control" type="text" name="raceTime" id="raceTime" placeholder="Example format: 1:23:45">
           </div>
           <button type="button" name="button" id="formButton" onclick="submitFileForm()" class="btn btn-primary">Submit</button>
         </form>
