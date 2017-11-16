@@ -32,6 +32,14 @@ function refreshFileList() {
     })
 }
 
+function clearForm () {
+  $('#raceName').val('');
+  $('#raceMonth').val('');
+  $('#raceYear').val('');
+  $('#raceDistance').val('');
+  $('#raceTime').val('');
+}
+
 /**********************************
 Function to reveal or hide entry from
 **********************************/
@@ -66,6 +74,7 @@ function submitFileForm() {
   .done(function(response) {
     refreshFileList();
     toggleVisibility();
+    clearForm();
   })
   .fail(function(error) {
     console.log("Failures at posting, we are", error);

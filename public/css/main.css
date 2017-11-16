@@ -7,7 +7,7 @@ JUMBOTRON STYLES
 ******************/
 
 .jumbotron {
-  background-image: url('../img/hero.jpg');
+  background-image: url('../img/hero_image.jpg');
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
@@ -19,6 +19,8 @@ JUMBOTRON STYLES
 h1 {
   font-family: 'Oswald', sans-serif;
   font-size: 3rem;
+  text-shadow: 2px 2px 2px rgba(20,70,205,0.3);
+  text-transform: uppercase;
 }
 
 /******************
@@ -63,4 +65,47 @@ td {
 
 .btn-sm {
  font-size: .700rem;
+}
+
+/*************
+FOOTER
+*************/
+footer {
+margin-top: 15px;
+text-align: center;
+color: rgb(20,70,205);
+padding: 1rem;
+}
+
+/**********************
+MEDIA QUERY FOR TABLETS
+AND SMALL LAPTOPS
+**********************/
+@media (min-width: 750px) {
+  .jumbotron {
+    background-size: cover;
+    height: 350px;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  .lead {
+    font-size: 1.75rem;
+  }
+
+  .table th,
+  .table td {
+    padding: .725rem;
+  }
+
+  th,
+  td {
+   font-size: 1rem;
+  }
+
+  .btn-sm {
+   font-size: .9rem;
+  }
 }
