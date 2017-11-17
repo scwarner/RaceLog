@@ -37,15 +37,15 @@ Function clears form data
 when Submit button is clicked
 ***************************/
 function clearForm () {
-  $('#raceName').val('');
+  $('#raceName').val('').attr('placeholder', '').css('border-color', 'rgba(0,0,0,.15)');
   $('#raceMonth').val('January');
   $('#raceYear').val('2017');
   $('#raceDistance').val('Marathon');
-  $('#raceTime').val('');
-  $('#raceName').attr('placeholder', '');
-  $('#raceName').css('border-color', 'rgba(0,0,0,.15)');
-  $('#raceTime').attr('placeholder', 'Example format: 1:23:45');
-  $('#raceTime').css('border-color', 'rgba(0,0,0,.15)');
+  $('#raceTime').val('').attr('placeholder', 'Example format: 1:23:45').css('border-color', 'rgba(0,0,0,.15)');
+  //$('#raceName').attr('placeholder', '');
+  //$('#raceName').css('border-color', 'rgba(0,0,0,.15)');
+  //$('#raceTime').attr('placeholder', 'Example format: 1:23:45');
+  $//('#raceTime').css('border-color', 'rgba(0,0,0,.15)');
 }
 
 /**********************************
@@ -73,12 +73,10 @@ function submitFileForm() {
       raceTime: raceTime
     };
     if (raceName === '') {
-      $('#raceName').attr('placeholder', "Please enter name!");
-      $('#raceName').css('border-color', 'red');
-
+      $('#raceName').attr('placeholder', "Please enter name!").css('border-color', 'rgb(255,0,0)');
     } else if (raceTime === '') {
-      $('#raceTime').attr('placeholder', "Please enter time!");
-      $('#raceTime').css('border-color', 'red');
+      $('#raceTime').attr('placeholder', "Please enter time!").css('border-color', 'rgb(255,0,0)');
+      //$('#raceTime').css('border-color', 'red');
       $('#raceName').css('border-color', 'rgba(0,0,0,.15)');
     } else {
     $.ajax({
@@ -112,7 +110,7 @@ function editRace(id) {
     $('#updateDistance').val(file.raceDistance);
     $('#updateTime').val(file.raceTime);
     $('#updateId').val(file._id);
-    console.log("I will edit you!", id);
+//    console.log("I will edit you!", id);
  } else {
    console.log("Sorry, I didn't find", id)
  }
@@ -120,7 +118,7 @@ function editRace(id) {
 
 /**********************************
 Function updates race data when form
-save changes button is clicked
+"save changes" button is clicked
 **********************************/
 function updateRace() {
   const file = window.fileList.find(file => file._id);
@@ -149,7 +147,7 @@ function updateRace() {
 }
 
 /**********************************
-Function deletes race data when form
+Function deletes race data when
 delete button is clicked
 **********************************/
 function deleteRace(id) {
