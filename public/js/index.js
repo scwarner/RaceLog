@@ -45,7 +45,7 @@ function clearForm () {
   //$('#raceName').attr('placeholder', '');
   //$('#raceName').css('border-color', 'rgba(0,0,0,.15)');
   //$('#raceTime').attr('placeholder', 'Example format: 1:23:45');
-  $//('#raceTime').css('border-color', 'rgba(0,0,0,.15)');
+  //$('#raceTime').css('border-color', 'rgba(0,0,0,.15)');
 }
 
 /**********************************
