@@ -32,16 +32,24 @@ function refreshFileList() {
     })
 }
 
+/***************************
+Function clears form data
+when Submit button is clicked
+***************************/
 function clearForm () {
   $('#raceName').val('');
-  $('#raceMonth').val('');
-  $('#raceYear').val('');
-  $('#raceDistance').val('');
+  $('#raceMonth').val('January');
+  $('#raceYear').val('2017');
+  $('#raceDistance').val('Marathon');
   $('#raceTime').val('');
+  $('#raceName').attr('placeholder', '');
+  $('#raceName').css('border-color', 'rgba(0,0,0,.15)');
+  $('#raceTime').attr('placeholder', 'Example format: 1:23:45');
+  $('#raceTime').css('border-color', 'rgba(0,0,0,.15)');
 }
 
 /**********************************
-Function to reveal or hide entry from
+Function to reveal or hide entry form
 **********************************/
 function toggleVisibility () {
   $('#raceForm').toggleClass('hideme');
@@ -71,6 +79,7 @@ function submitFileForm() {
     } else if (raceTime === '') {
       $('#raceTime').attr('placeholder', "Please enter time!");
       $('#raceTime').css('border-color', 'red');
+      $('#raceName').css('border-color', 'rgba(0,0,0,.15)');
     } else {
     $.ajax({
     type: "POST",

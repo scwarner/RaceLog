@@ -57,6 +57,10 @@ h2 {
   margin-top: 30px;
 }
 
+.table thead th {
+  border-bottom: 0;
+}
+
 .table th,
 .table td {
   padding: .25rem;
@@ -67,6 +71,10 @@ td {
  font-size: .8rem;
 }
 
+.btn-secondary {
+  background-color: rgb(20,70,205);
+}
+
 .btn-sm {
  font-size: .700rem;
 }
@@ -75,10 +83,11 @@ td {
 FOOTER
 *************/
 footer {
-margin-top: 15px;
+margin-top: 20px;
 text-align: center;
 color: rgb(20,70,205);
 padding: 1rem;
+border-top: 3px solid rgb(20,70,205);
 }
 
 /**********************
