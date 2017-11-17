@@ -37,15 +37,11 @@ Function clears form data
 when Submit button is clicked
 ***************************/
 function clearForm () {
-  $('#raceName').val('').attr('placeholder', '').css('border-color', 'rgba(0,0,0,.15)');
+  $('#raceName').val('').attr('placeholder', '').removeClass('emptyInput');//.css('border-color', 'rgba(0,0,0,.15)');
   $('#raceMonth').val('January');
   $('#raceYear').val('2017');
   $('#raceDistance').val('Marathon');
-  $('#raceTime').val('').attr('placeholder', 'Example format: 1:23:45').css('border-color', 'rgba(0,0,0,.15)');
-  //$('#raceName').attr('placeholder', '');
-  //$('#raceName').css('border-color', 'rgba(0,0,0,.15)');
-  //$('#raceTime').attr('placeholder', 'Example format: 1:23:45');
-  //$('#raceTime').css('border-color', 'rgba(0,0,0,.15)');
+  $('#raceTime').val('').attr('placeholder', 'Example format: 1:23:45').removeClass('emptyInput');//.css('border-color', 'rgba(0,0,0,.15)');
 }
 
 /**********************************
@@ -72,12 +68,14 @@ function submitFileForm() {
       raceDistance: raceDistance,
       raceTime: raceTime
     };
-    if (raceName === '') {
-      $('#raceName').attr('placeholder', "Please enter name!").css('border-color', 'rgb(255,0,0)');
+    if (raceName === '' && raceTime === '') {
+      $('#raceName').attr('placeholder', "Please enter name!").addClass('emptyInput');//.css('border-color', 'rgb(255,0,0)');
+      $('#raceTime').attr('placeholder', "Please enter time!").addClass('emptyInput');//.css('border-color', 'rgb(255,0,0)');
+    } else if (raceName === '') {
+      $('#raceName').attr('placeholder', "Please enter name!").addClass('emptyInput');//.css('border-color', 'rgb(255,0,0)');
     } else if (raceTime === '') {
-      $('#raceTime').attr('placeholder', "Please enter time!").css('border-color', 'rgb(255,0,0)');
-      //$('#raceTime').css('border-color', 'red');
-      $('#raceName').css('border-color', 'rgba(0,0,0,.15)');
+      $('#raceTime').attr('placeholder', "Please enter time!").addClass('emptyInput');//.css('border-color', 'rgb(255,0,0)');
+      $('#raceName').attr('placeholder', "Please enter name!").removeClass('emptyInput');//.css('border-color', 'rgb(255,0,0)');
     } else {
     $.ajax({
     type: "POST",

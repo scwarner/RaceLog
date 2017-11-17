@@ -45,6 +45,10 @@ INTRO/FORM STYLES
   border-color: rgb(20,70,205);
 }
 
+.emptyInput {
+  border-color: rgb(255,0,0);
+}
+
 /******************
 TABLE STYLES
 ******************/
