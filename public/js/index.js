@@ -52,33 +52,42 @@ Function posts race data when form
 submit button is clicked
 **********************************/
 function submitFileForm() {
-  const raceName = $('#raceName').val();
-  const raceMonth = $('#raceMonth').val();
-  const raceYear = $('#raceYear').val();
-  const raceDistance = $('#raceDistance').val();
-  const raceTime = $('#raceTime').val();
-  const racingData = {
-    raceName: raceName,
-    raceMonth: raceMonth,
-    raceYear: raceYear,
-    raceDistance: raceDistance,
-    raceTime: raceTime
-  };
-  $.ajax({
-  type: "POST",
-  url: '/api/file',
-  data: JSON.stringify(racingData),
-  dataType: 'json',
-  contentType : 'application/json',
-})
-  .done(function(response) {
-    refreshFileList();
-    toggleVisibility();
-    clearForm();
+    const raceName = $('#raceName').val();
+    const raceMonth = $('#raceMonth').val();
+    const raceYear = $('#raceYear').val();
+    const raceDistance = $('#raceDistance').val();
+    const raceTime = $('#raceTime').val();
+    const racingData = {
+      raceName: raceName,
+      raceMonth: raceMonth,
+      raceYear: raceYear,
+      raceDistance: raceDistance,
+      raceTime: raceTime
+    };
+    if (raceName === '') {
+      $('#raceName').attr('placeholder', "Please enter name!");
+      $('#raceName').css('border-color', 'red');
+
+    } else if (raceTime === '') {
+      $('#raceTime').attr('placeholder', "Please enter time!");
+      $('#raceTime').css('border-color', 'red');
+    } else {
+    $.ajax({
+    type: "POST",
+    url: '/api/file',
+    data: JSON.stringify(racingData),
+    dataType: 'json',
+    contentType : 'application/json',
   })
-  .fail(function(error) {
-    console.log("Failures at posting, we are", error);
-  });
+    .done(function(response) {
+      refreshFileList();
+      toggleVisibility();
+      clearForm();
+    })
+    .fail(function(error) {
+      console.log("Failures at posting, we are", error);
+    });
+  }
 }
 
 /**********************************
