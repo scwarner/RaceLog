@@ -40,7 +40,8 @@ INTRO/FORM STYLES
 }
 
 #enterButton,
-#formButton {
+#formButton,
+#saveButton {
   background-color: rgb(20,70,205);
   border-color: rgb(20,70,205);
 }

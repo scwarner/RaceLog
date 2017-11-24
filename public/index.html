@@ -28,7 +28,7 @@
       <div class="container">
         <p>Whether you broke the tape or finished dead last, each race you complete is major accomplishment. Use this handy race log to keep a record of those achievements, no matter the distance. Simply click the button below to start.</p>
         <button type="button" name="enterButton" id="enterButton" onclick="toggleVisibility()" class="btn btn-primary">Enter Race</button>
-      
+
       <!-- FORM CONTENT -->
 
         <form id="raceForm" class="hideme">
@@ -79,6 +79,7 @@
           <div class="form-group">
             <label for="raceDistance">Distance:</label>
             <select class="raceDistance custom-select" name="raceDistance" id='raceDistance'>
+              <option value="Ultra">Ultra</option>
               <option value="Marathon">Marathon</option>
               <option value="Half Marathon">Half Marathon</option>
               <option value="10-miler">10-miler</option>
@@ -171,7 +172,7 @@
           <input type="hidden" id="updateId">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick=updateRace()>Save changes</button>
+          <button type="button" class="btn btn-primary" id="saveButton" onclick=updateRace() data-dismiss="modal">Save changes</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
